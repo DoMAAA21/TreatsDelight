@@ -1,0 +1,19 @@
+/* AdminDashboard.css */
+
+/* Add responsive styles for the container */
+.container {
+    background: linear-gradient(135deg, #f0f0f0, #ffffff);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Add responsive styles for the status buttons */
+  .status-button {
+    @media (max-width: 600px) {
+      /* Customize the button styles for mobile devices */
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+  }
+  
