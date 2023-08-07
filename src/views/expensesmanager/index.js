@@ -1,68 +1,83 @@
-import React, { useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Typography } from '@mui/material';
+import React from 'react';
+import {
+  Table,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Paper,
+  Button,
+  Box,
+} from '@mui/material';
+import { Icon } from '@iconify/react';
 
-const stores = ['Store 1', 'Store 2', 'Store 3', 'Store 4', 'Store 5', 'Store 6', 'Store 7', 'Store 8'];
-const expenseCategories = ['Water', 'Electricity', 'Rent', 'Other'];
+const columns = [
+  {
+    id: 'storeName',
+    label: 'Store',
+  },
+  {
+    id: 'water',
+    label: 'Water Expenses',
+  },
+  {
+    id: 'electricity',
+    label: 'Electricity',
+  },
+  {
+    id: 'expenseAmount',
+    label: 'Other Expeneses Amount',
+  },
+  {
+    id: 'date',
+    label: 'Date',
+  },
+  {
+    id: 'Action',
+    label: 'Action',
+  },
+];
 
-const ExpenseManagementApp = () => {
+const data = [
+  { id: 1, storeName: 'Danissa88',water: 2000,electricity:2000, expenseAmount: 1000, date: '2023-08-01',Action: <Icon icon="uil:edit" height={30} width={30}/> },
+  { id: 2, storeName: 'Joymarie',water: 2300,electricity:1800, expenseAmount: 740, date: '2023-08-01',Action: <Icon icon="uil:edit" height={30} width={30}/> },
+  { id: 3, storeName: 'RL kids',water: 1800,electricity:1400, expenseAmount: 434, date: '2023-08-01',Action: <Icon icon="uil:edit" height={30} width={30}/> },
+  { id: 4, storeName: 'Kael Food Stall',water: 2000,electricity:2000, expenseAmount: 1000, date: '2023-08-01',Action: <Icon icon="uil:edit" height={30} width={30}/> },
+  { id: 1, storeName: 'Reyno S',water: 2000,electricity:2000, expenseAmount: 1000, date: '2023-08-01',Action: <Icon icon="uil:edit" height={30} width={30}/> },
   
+  
+  // Add more dummy data for other stores...
+];
 
-  // Dummy expenses data
-  const dummyExpenses = {
-    'Store 1': {
-      Water: 100,
-      Electricity: 150,
-      Rent: 800,
-      Other: 200,
-    },
-    'Store 2': {
-      Water: 120,
-      Electricity: 180,
-      Rent: 850,
-      Other: 220,
-    },
-    // Add dummy expenses for other stores
-  };
-
-  const [expenses, setExpenses] = useState(dummyExpenses);
-
+const ExpensesManagement = () => {
   return (
-    <div style={{ padding: '20px' }}>
-      <Typography variant="h4" gutterBottom>
-        Super Admin - Store Expenses Management
-      </Typography>
-      <Grid container spacing={2} justifyContent="center">
-        <Grid item xs={12} sm={10}>
-          <TableContainer component={Paper}>
-            <Table>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Store Name</TableCell>
-                  {expenseCategories.map((category) => (
-                    <TableCell key={category}>{category}</TableCell>
-                  ))}
-                  <TableCell>Edit</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {stores.map((store) => (
-                  <TableRow key={store}>
-                    <TableCell>{store}</TableCell>
-                    {expenseCategories.map((category) => (
-                      <TableCell key={category}>{expenses[store][category]}</TableCell>
-                    ))}
-                    <TableCell>
-                      <button>Edit</button>
-                    </TableCell>
-                  </TableRow>
+    <Box p={3}>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              {columns.map((column) => (
+                <TableCell key={column.id}>{column.label}</TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {data.map((row) => (
+              <TableRow key={row.id}>
+                {columns.map((column) => (
+                  <TableCell key={column.id}>{row[column.id]}</TableCell>
                 ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Grid>
-      </Grid>
-    </div>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+      {/* <Button variant="contained" color="primary" mt={2}>
+        Add Expense
+      </Button> */}
+    </Box>
   );
 };
 
-export default ExpenseManagementApp;
+export default ExpensesManagement;

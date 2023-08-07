@@ -57,11 +57,6 @@ export default function UserDashboard() {
           </Grid>
 
           <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Delivery"  color="info" icon={'icon-park-outline:delivery'} />
-          </Grid>
-
-
-          <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="Recommendations"  color="info" icon={'carbon:recommend'} />
           </Grid>
 

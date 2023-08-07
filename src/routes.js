@@ -28,6 +28,7 @@ import ReservationReceipt from './views/stores/reservationReceipt';
 import DeliveryReceipt from './views/stores/deliveryReceipt';
 import RecommendationApp from './views/recommendations';
 import ExpenseManagementApp from './views/expensesmanager';
+import CartMenuItem from './views/feedbacks';
 
 export default function Router() {
   const routes = useRoutes([
@@ -54,6 +55,7 @@ export default function Router() {
         { path: 'stores', element: <StorePicker /> },
         { path: 'recommendations', element: <RecommendationApp /> },
         { path: 'expenses-manager', element: <ExpenseManagementApp /> },
+        { path: 'feedbacks', element: <CartMenuItem /> },
 
 
 
